@@ -25,10 +25,8 @@ build/
 *.duckdb
 *.duckdb.wal
 
-# Dify
-dify/docker/volumes/
-dify/docker/.env
-dify/docker/docker-compose.yaml
+# Dify - ignore entire dify directory as it's a separate git repository
+dify/
 
 # Docker
 *.log
