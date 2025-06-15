@@ -55,7 +55,10 @@ if __name__ == "__main__":
         sys.exit(1)
     
     csv_file = sys.argv[1]
-    db_file = "/home/qinshu/douyin-analytics/data/db/analytics.duckdb"
+    # 使用相对路径获取项目根目录
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_dir = os.path.dirname(script_dir)
+    db_file = os.path.join(project_dir, "data", "db", "analytics.duckdb")
     
     if not os.path.exists(csv_file):
         print(f"❌ CSV文件不存在: {csv_file}")

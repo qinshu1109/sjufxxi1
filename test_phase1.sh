@@ -4,7 +4,8 @@
 echo "🧪 第一阶段验收测试"
 echo "==================="
 
-cd /home/qinshu/douyin-analytics
+PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
+cd "$PROJECT_DIR"
 
 # 测试1：项目结构
 echo "1. ✅ 项目结构检查"

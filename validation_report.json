@@ -1,0 +1,194 @@
+{
+  "timestamp": "2025-06-15T23:01:12.653642",
+  "tests": [
+    {
+      "test": "目录检查: data/db",
+      "status": "passed",
+      "message": "目录存在",
+      "details": {},
+      "timestamp": "2025-06-15T23:01:12.653717"
+    },
+    {
+      "test": "目录检查: data/csv",
+      "status": "passed",
+      "message": "目录存在",
+      "details": {},
+      "timestamp": "2025-06-15T23:01:12.653739"
+    },
+    {
+      "test": "目录检查: scripts",
+      "status": "passed",
+      "message": "目录存在",
+      "details": {},
+      "timestamp": "2025-06-15T23:01:12.653756"
+    },
+    {
+      "test": "目录检查: config",
+      "status": "passed",
+      "message": "目录存在",
+      "details": {},
+      "timestamp": "2025-06-15T23:01:12.653771"
+    },
+    {
+      "test": "DuckDB数据库",
+      "status": "passed",
+      "message": "数据库文件存在",
+      "details": {},
+      "timestamp": "2025-06-15T23:01:12.653785"
+    },
+    {
+      "test": "Python依赖",
+      "status": "passed",
+      "message": "pandas和duckdb已安装",
+      "details": {},
+      "timestamp": "2025-06-15T23:01:12.653797"
+    },
+    {
+      "test": "测试数据文件",
+      "status": "passed",
+      "message": "数据文件存在，150条记录",
+      "details": {
+        "records": 150,
+        "products": 5,
+        "date_range": "2025-05-16 ~ 2025-06-14"
+      },
+      "timestamp": "2025-06-15T23:01:12.658586"
+    },
+    {
+      "test": "数据完整性",
+      "status": "passed",
+      "message": "数据记录数量符合预期",
+      "details": {},
+      "timestamp": "2025-06-15T23:01:12.658604"
+    },
+    {
+      "test": "数据表: douyin_sales_detail",
+      "status": "passed",
+      "message": "表已创建",
+      "details": {},
+      "timestamp": "2025-06-15T23:01:12.698579"
+    },
+    {
+      "test": "数据表: douyin_products",
+      "status": "passed",
+      "message": "表已创建",
+      "details": {},
+      "timestamp": "2025-06-15T23:01:12.698620"
+    },
+    {
+      "test": "数据导入",
+      "status": "passed",
+      "message": "成功导入150条销售记录",
+      "details": {},
+      "timestamp": "2025-06-15T23:01:12.699134"
+    },
+    {
+      "test": "基础统计",
+      "status": "passed",
+      "message": "统计查询执行成功",
+      "details": {
+        "总记录": 150,
+        "产品数": 5,
+        "总销量": 392176,
+        "平均销量": 2614.51
+      },
+      "timestamp": "2025-06-15T23:01:12.719843"
+    },
+    {
+      "test": "异常检测",
+      "status": "passed",
+      "message": "检测到10个异常销量数据点",
+      "details": {},
+      "timestamp": "2025-06-15T23:01:12.720693"
+    },
+    {
+      "test": "品牌分析",
+      "status": "passed",
+      "message": "成功分析3个品牌数据",
+      "details": {},
+      "timestamp": "2025-06-15T23:01:12.723422"
+    },
+    {
+      "test": "时间趋势",
+      "status": "passed",
+      "message": "成功分析5周的趋势数据",
+      "details": {},
+      "timestamp": "2025-06-15T23:01:12.728683"
+    },
+    {
+      "test": "Webhook配置",
+      "status": "passed",
+      "message": "配置文件存在且格式正确",
+      "details": {},
+      "timestamp": "2025-06-15T23:01:12.732820"
+    },
+    {
+      "test": "告警系统",
+      "status": "passed",
+      "message": "告警脚本执行成功",
+      "details": {},
+      "timestamp": "2025-06-15T23:01:12.762726"
+    },
+    {
+      "test": "Dify容器",
+      "status": "passed",
+      "message": "Dify服务正在运行",
+      "details": {},
+      "timestamp": "2025-06-15T23:01:13.044397"
+    },
+    {
+      "test": "网络修复: ultimate_dify_network_fix.sh",
+      "status": "passed",
+      "message": "脚本存在",
+      "details": {},
+      "timestamp": "2025-06-15T23:01:13.044455"
+    },
+    {
+      "test": "网络修复: precise_network_fix.sh",
+      "status": "passed",
+      "message": "脚本存在",
+      "details": {},
+      "timestamp": "2025-06-15T23:01:13.044475"
+    },
+    {
+      "test": "组件: 数据生成",
+      "status": "passed",
+      "message": "组件文件存在",
+      "details": {},
+      "timestamp": "2025-06-15T23:01:13.044502"
+    },
+    {
+      "test": "组件: 数据导入",
+      "status": "passed",
+      "message": "组件文件存在",
+      "details": {},
+      "timestamp": "2025-06-15T23:01:13.044518"
+    },
+    {
+      "test": "组件: Webhook配置",
+      "status": "passed",
+      "message": "组件文件存在",
+      "details": {},
+      "timestamp": "2025-06-15T23:01:13.044532"
+    },
+    {
+      "test": "组件: 验收测试",
+      "status": "passed",
+      "message": "组件文件存在",
+      "details": {},
+      "timestamp": "2025-06-15T23:01:13.044546"
+    },
+    {
+      "test": "系统完整性",
+      "status": "passed",
+      "message": "所有核心组件已部署",
+      "details": {},
+      "timestamp": "2025-06-15T23:01:13.044556"
+    }
+  ],
+  "summary": {
+    "passed": 25,
+    "failed": 0,
+    "skipped": 0
+  }
+}

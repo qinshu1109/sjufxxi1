@@ -29,8 +29,9 @@ fi
 
 # 检查服务日志
 echo -e "\n--- 服务状态概览 ---"
-if [ -d "/home/qinshu/douyin-analytics/dify/docker" ]; then
-    cd /home/qinshu/douyin-analytics/dify/docker
+PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+if [ -d "$PROJECT_DIR/dify/docker" ]; then
+    cd "$PROJECT_DIR/dify/docker"
     if [ -f "docker-compose.yml" ]; then
         docker compose ps 2>/dev/null || echo "Dify尚未部署"
     else

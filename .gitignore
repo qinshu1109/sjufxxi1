@@ -45,10 +45,19 @@ docker-compose.override.yml
 .DS_Store
 Thumbs.db
 
-# Environment
+# Environment and sensitive configs
 .env
 .env.local
 .env.*.local
+config/dify_env.txt
+task_state.json
+
+# API keys and secrets
+*.key
+*.pem
+*.crt
+config/*_secret*
+config/*_key*
 
 # Temporary files
 *.tmp

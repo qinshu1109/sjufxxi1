@@ -6,7 +6,7 @@ set -e
 echo "🚀 第一阶段：基础设施搭建"
 echo "========================="
 
-PROJECT_DIR="/home/qinshu/douyin-analytics"
+PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$PROJECT_DIR"
 
 # 步骤1：安装DuckDB

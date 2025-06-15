@@ -1,0 +1,20 @@
+{
+  "feishu": {
+    "webhook_url": "https://open.feishu.cn/open-apis/bot/v2/hook/your-webhook-token-here",
+    "enabled": true,
+    "alert_types": [
+      "anomaly",
+      "threshold",
+      "system"
+    ],
+    "rate_limit": {
+      "max_per_hour": 10,
+      "max_per_day": 50
+    }
+  },
+  "alerts": {
+    "sales_anomaly_threshold": 5000,
+    "conversion_rate_threshold": 20.0,
+    "revenue_drop_threshold": 0.3
+  }
+}

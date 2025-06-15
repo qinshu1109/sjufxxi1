@@ -4,7 +4,7 @@
 echo "🔍 第二阶段部署前完整验证"
 echo "=================================="
 
-PROJECT_DIR="/home/qinshu/douyin-analytics"
+PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$PROJECT_DIR"
 
 # 颜色定义

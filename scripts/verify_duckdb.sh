@@ -1,6 +1,7 @@
 #!/bin/bash
 echo "=== DuckDB数据库验证 ==="
-DB_PATH="/home/qinshu/douyin-analytics/data/db/analytics.duckdb"
+PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+DB_PATH="$PROJECT_DIR/data/db/analytics.duckdb"
 
 # 检查文件
 if [ -f "$DB_PATH" ]; then

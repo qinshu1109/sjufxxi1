@@ -7,7 +7,7 @@ echo "🚀 开始部署抖音电商数据分析平台..."
 echo "========================================"
 
 # 项目信息
-PROJECT_DIR="/home/qinshu/douyin-analytics"
+PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
 DIFY_DIR="$PROJECT_DIR/dify"
 
 # 颜色定义

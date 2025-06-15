@@ -3,7 +3,7 @@
 
 echo "🔧 修复权限和配置..."
 
-PROJECT_DIR="/home/qinshu/douyin-analytics"
+PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 USER="qinshu"
 
 # 1. 修复项目目录权限
