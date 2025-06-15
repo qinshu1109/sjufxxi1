@@ -1,0 +1,17 @@
+# GitHub推送指令
+
+## 方法1：使用辅助脚本（推荐）
+./scripts/github_push.sh
+
+## 方法2：手动推送
+# 1. 设置Git凭据缓存
+git config --global credential.helper cache
+git config --global credential.helper 'cache --timeout=3600'
+
+# 2. 推送（会提示输入用户名和密码）
+git push -u origin master
+# 用户名：qinshu1109
+# 密码：粘贴刚才生成的Personal Access Token
+
+## 验证推送成功
+# 访问：https://github.com/qinshu1109/sjuxt
