@@ -1,0 +1,53 @@
+{
+  "timestamp": "2025-06-16T06:55:12.197781",
+  "test_type": "基础集成测试",
+  "summary": {
+    "total": 8,
+    "passed": 7,
+    "failed": 1,
+    "errors": 0,
+    "success_rate": "87.5%"
+  },
+  "details": [
+    {
+      "test": "test_project_structure",
+      "status": "PASS",
+      "timestamp": "2025-06-16T06:55:12.183848"
+    },
+    {
+      "test": "test_db_gpt_files",
+      "status": "PASS",
+      "timestamp": "2025-06-16T06:55:12.184268"
+    },
+    {
+      "test": "test_configuration_files",
+      "status": "PASS",
+      "timestamp": "2025-06-16T06:55:12.184549"
+    },
+    {
+      "test": "test_containerfile",
+      "status": "PASS",
+      "timestamp": "2025-06-16T06:55:12.184791"
+    },
+    {
+      "test": "test_podman_compose",
+      "status": "FAIL",
+      "timestamp": "2025-06-16T06:55:12.185071"
+    },
+    {
+      "test": "test_awel_flows",
+      "status": "PASS",
+      "timestamp": "2025-06-16T06:55:12.185599"
+    },
+    {
+      "test": "test_scripts",
+      "status": "PASS",
+      "timestamp": "2025-06-16T06:55:12.185869"
+    },
+    {
+      "test": "test_model_config",
+      "status": "PASS",
+      "timestamp": "2025-06-16T06:55:12.197679"
+    }
+  ]
+}

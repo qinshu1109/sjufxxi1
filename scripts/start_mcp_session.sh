@@ -28,5 +28,8 @@ echo "在新会话中，请说:"
 echo '   "使用GitHub MCP工具创建douyin-analytics仓库并推送所有项目文件"'
 echo ""
 
-# 启动带MCP的Claude Code会话
+# 启动带MCP的Claude Code会话（包含PromptX）
+echo "🎭 PromptX AI专业角色增强系统已集成"
+echo "   可用工具: promptx_init, promptx_hello, promptx_action, promptx_learn, promptx_recall, promptx_remember"
+echo ""
 exec claude --mcp-config=/home/qinshu/MCP工具/mcp-config.json

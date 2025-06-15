@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: data-storage-pod
+  labels:
+    app: sjufxxi
+    tier: data
+spec:
+  containers:
+  - name: postgres
+    image: postgres:15-alpine
+    ports:
+    - containerPort: 5432
+    env:
+    - name: POSTGRES_PASSWORD
+      value: "difyai123456"
+    - name: POSTGRES_DB
+      value: "dify"
+    volumeMounts:
+    - name: postgres-data
+      mountPath: /var/lib/postgresql/data
+  - name: redis
+    image: redis:6-alpine
+    ports:
+    - containerPort: 6379
+    volumeMounts:
+    - name: redis-data
+      mountPath: /data
+    command: ["redis-server", "--requirepass", "difyai123456"]
+  volumes:
+  - name: postgres-data
+    hostPath:
+      path: /home/qinshu/data/postgres
+  - name: redis-data
+    hostPath:
+      path: /home/qinshu/data/redis
+  restartPolicy: Always

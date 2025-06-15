@@ -1,0 +1,92 @@
+# 网关Pod - sjufxxi项目
+# 包含Nginx反向代理和SSL终端
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: gateway-pod
+  labels:
+    app: sjufxxi
+    tier: gateway
+    component: proxy
+spec:
+  containers:
+  - name: nginx
+    image: nginx:latest
+    ports:
+    - containerPort: 80
+      name: http-port
+      hostPort: 80
+    - containerPort: 443
+      name: https-port
+      hostPort: 443
+    env:
+    - name: NGINX_SERVER_NAME
+      value: "_"
+    - name: NGINX_HTTPS_ENABLED
+      value: "false"
+    - name: NGINX_PORT
+      value: "80"
+    - name: NGINX_WORKER_PROCESSES
+      value: "auto"
+    - name: NGINX_CLIENT_MAX_BODY_SIZE
+      value: "15M"
+    volumeMounts:
+    - name: nginx-config
+      mountPath: /etc/nginx/conf.d
+      readOnly: true
+    - name: certbot-conf
+      mountPath: /etc/letsencrypt
+      readOnly: true
+    - name: certbot-www
+      mountPath: /var/www/html
+      readOnly: true
+    livenessProbe:
+      httpGet:
+        path: /
+        port: 80
+      initialDelaySeconds: 30
+      periodSeconds: 30
+    readinessProbe:
+      httpGet:
+        path: /
+        port: 80
+      initialDelaySeconds: 5
+      periodSeconds: 10
+
+  - name: certbot
+    image: certbot/certbot
+    env:
+    - name: CERTBOT_EMAIL
+      value: "admin@example.com"
+    - name: CERTBOT_DOMAIN
+      value: "localhost"
+    volumeMounts:
+    - name: certbot-conf
+      mountPath: /etc/letsencrypt
+    - name: certbot-www
+      mountPath: /var/www/html
+    command: ["tail", "-f", "/dev/null"]  # Keep container running
+
+  volumes:
+  - name: nginx-config
+    hostPath:
+      path: /home/qinshu/config/nginx
+      type: DirectoryOrCreate
+  - name: certbot-conf
+    hostPath:
+      path: /home/qinshu/config/certbot/conf
+      type: DirectoryOrCreate
+  - name: certbot-www
+    hostPath:
+      path: /home/qinshu/config/certbot/www
+      type: DirectoryOrCreate
+
+  restartPolicy: Always
+  
+  # 安全上下文 - rootless兼容
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 101
+    runAsGroup: 101
+    fsGroup: 101

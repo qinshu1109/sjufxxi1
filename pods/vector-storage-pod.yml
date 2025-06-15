@@ -1,0 +1,69 @@
+# 向量存储Pod - sjufxxi项目
+# 包含Weaviate向量数据库服务
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: vector-storage-pod
+  labels:
+    app: sjufxxi
+    tier: data
+    component: vector
+spec:
+  containers:
+  - name: weaviate
+    image: semitechnologies/weaviate:1.25.5
+    ports:
+    - containerPort: 8080
+      name: weaviate-port
+    env:
+    - name: PERSISTENCE_DATA_PATH
+      value: "/var/lib/weaviate"
+    - name: QUERY_DEFAULTS_LIMIT
+      value: "25"
+    - name: AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED
+      value: "false"
+    - name: DEFAULT_VECTORIZER_MODULE
+      value: "none"
+    - name: CLUSTER_HOSTNAME
+      value: "node1"
+    - name: AUTHENTICATION_APIKEY_ENABLED
+      value: "true"
+    - name: AUTHENTICATION_APIKEY_ALLOWED_KEYS
+      value: "WVF5YThaHlkYwhGUSmCRgsX3tD5ngdN8pkih"
+    - name: AUTHENTICATION_APIKEY_USERS
+      value: "hello@dify.ai"
+    - name: AUTHORIZATION_ADMINLIST_ENABLED
+      value: "true"
+    - name: AUTHORIZATION_ADMINLIST_USERS
+      value: "hello@dify.ai"
+    volumeMounts:
+    - name: weaviate-data
+      mountPath: /var/lib/weaviate
+    livenessProbe:
+      httpGet:
+        path: /v1/.well-known/ready
+        port: 8080
+      initialDelaySeconds: 40
+      periodSeconds: 30
+    readinessProbe:
+      httpGet:
+        path: /v1/.well-known/ready
+        port: 8080
+      initialDelaySeconds: 10
+      periodSeconds: 10
+
+  volumes:
+  - name: weaviate-data
+    hostPath:
+      path: /home/qinshu/data/weaviate
+      type: DirectoryOrCreate
+
+  restartPolicy: Always
+  
+  # 安全上下文 - rootless兼容
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 1000
+    runAsGroup: 1000
+    fsGroup: 1000

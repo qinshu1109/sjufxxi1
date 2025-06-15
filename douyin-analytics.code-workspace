@@ -1,0 +1,102 @@
+{
+  "folders": [
+    {
+      "name": "抖音数据分析平台",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "chat.mcp.enabled": true,
+    "chat.mcp.discovery.enabled": true,
+    "files.associations": {
+      "*.duckdb": "sql",
+      "*.sql": "sql",
+      "mcp.json": "jsonc"
+    },
+    "python.defaultInterpreterPath": "./venv/bin/python",
+    "python.terminal.activateEnvironment": true,
+    "terminal.integrated.env.linux": {
+      "PROMPTX_WORKSPACE": "${workspaceFolder}",
+      "TZ": "Asia/Shanghai",
+      "DUCKDB_PATH": "${workspaceFolder}/data/db/analytics.duckdb"
+    },
+    "workbench.colorTheme": "Default Dark+",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    },
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "copilot.enable": {
+      "*": true,
+      "yaml": true,
+      "plaintext": true,
+      "markdown": true,
+      "json": true,
+      "python": true,
+      "sql": true,
+      "shell": true
+    },
+    "files.exclude": {
+      "**/__pycache__": true,
+      "**/*.pyc": true,
+      "**/node_modules": true,
+      "**/.git": true,
+      "**/.DS_Store": true,
+      "**/Thumbs.db": true,
+      "**/*.duckdb": false,
+      "**/*.duckdb.wal": true,
+      "venv/": true,
+      "dify/": true
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/bower_components": true,
+      "**/*.code-search": true,
+      "venv/": true,
+      "dify/": true
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "github.copilot",
+      "github.copilot-chat",
+      "ms-python.python",
+      "ms-python.vscode-pylance",
+      "ms-vscode.vscode-json",
+      "redhat.vscode-yaml",
+      "ms-toolsai.jupyter",
+      "ms-vscode.vscode-docker",
+      "ms-vscode-remote.remote-containers"
+    ]
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "启动完整 MCP 环境",
+        "type": "shell",
+        "command": "./scripts/launch_vscode_mcp.sh",
+        "group": "build",
+        "presentation": {
+          "echo": true,
+          "reveal": "always",
+          "focus": false,
+          "panel": "new"
+        }
+      },
+      {
+        "label": "验证 MCP 配置",
+        "type": "shell",
+        "command": "./scripts/verify_vscode_mcp.sh",
+        "group": "test",
+        "presentation": {
+          "echo": true,
+          "reveal": "always",
+          "focus": false,
+          "panel": "new"
+        }
+      }
+    ]
+  }
+}

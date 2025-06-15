@@ -1,0 +1,110 @@
+# 核心应用Pod - sjufxxi项目
+# 包含API、Worker、Web前端服务
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: core-app-pod
+  labels:
+    app: sjufxxi
+    tier: application
+    component: core
+spec:
+  containers:
+  - name: api
+    image: langgenius/dify-api:1.4.2
+    ports:
+    - containerPort: 5001
+      name: api-port
+    env:
+    - name: DB_HOST
+      value: "data-storage-pod"
+    - name: DB_USERNAME
+      value: "postgres"
+    - name: DB_PASSWORD
+      value: "difyai123456"
+    - name: DB_DATABASE
+      value: "dify"
+    - name: REDIS_HOST
+      value: "data-storage-pod"
+    - name: REDIS_PASSWORD
+      value: "difyai123456"
+    - name: VECTOR_STORE
+      value: "weaviate"
+    - name: WEAVIATE_ENDPOINT
+      value: "http://vector-storage-pod:8080"
+    - name: SECRET_KEY
+      value: "sk-9f73s3ljTXVcMT3Blb3ljTqtsKiGHXVcMT3BlbkFJLK7U"
+    volumeMounts:
+    - name: app-storage
+      mountPath: /app/api/storage
+    livenessProbe:
+      httpGet:
+        path: /health
+        port: 5001
+      initialDelaySeconds: 30
+      periodSeconds: 30
+    readinessProbe:
+      httpGet:
+        path: /health
+        port: 5001
+      initialDelaySeconds: 10
+      periodSeconds: 10
+
+  - name: worker
+    image: langgenius/dify-api:1.4.2
+    env:
+    - name: MODE
+      value: "worker"
+    - name: DB_HOST
+      value: "data-storage-pod"
+    - name: DB_USERNAME
+      value: "postgres"
+    - name: DB_PASSWORD
+      value: "difyai123456"
+    - name: DB_DATABASE
+      value: "dify"
+    - name: REDIS_HOST
+      value: "data-storage-pod"
+    - name: REDIS_PASSWORD
+      value: "difyai123456"
+    - name: VECTOR_STORE
+      value: "weaviate"
+    - name: WEAVIATE_ENDPOINT
+      value: "http://vector-storage-pod:8080"
+    - name: SECRET_KEY
+      value: "sk-9f73s3ljTXVcMT3Blb3ljTqtsKiGHXVcMT3BlbkFJLK7U"
+    - name: CELERY_WORKER_CLASS
+      value: "gevent"
+    volumeMounts:
+    - name: app-storage
+      mountPath: /app/api/storage
+    command: ["celery", "-A", "app.celery", "worker", "-P", "gevent", "-c", "1", "--loglevel=INFO"]
+
+  - name: web
+    image: langgenius/dify-web:1.4.2
+    ports:
+    - containerPort: 3000
+      name: web-port
+    env:
+    - name: CONSOLE_API_URL
+      value: "http://localhost/console-api"
+    - name: APP_API_URL
+      value: "http://localhost/api"
+    - name: NEXT_TELEMETRY_DISABLED
+      value: "0"
+
+  volumes:
+  - name: app-storage
+    hostPath:
+      path: /home/qinshu/data/app
+      type: DirectoryOrCreate
+
+  restartPolicy: Always
+  
+  # 安全上下文 - rootless兼容
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 1000
+    runAsGroup: 1000
+    fsGroup: 1000

@@ -1,0 +1,63 @@
+{
+  "version": "2.0.0",
+  "source": "project",
+  "metadata": {
+    "version": "2.0.0",
+    "description": "project 级资源注册表",
+    "createdAt": "2025-06-15T21:57:21.478Z",
+    "updatedAt": "2025-06-15T21:57:21.481Z",
+    "resourceCount": 3
+  },
+  "resources": [
+    {
+      "id": "system-refactor-architect",
+      "source": "project",
+      "protocol": "role",
+      "name": "System Refactor Architect 角色",
+      "description": "专业角色，提供特定领域的专业能力",
+      "reference": "@project://.promptx/resource/domain/system-refactor-architect/system-refactor-architect.role.md",
+      "metadata": {
+        "createdAt": "2025-06-15T21:57:21.480Z",
+        "updatedAt": "2025-06-15T21:57:21.480Z",
+        "scannedAt": "2025-06-15T21:57:21.480Z"
+      }
+    },
+    {
+      "id": "system-refactor-thinking",
+      "source": "project",
+      "protocol": "thought",
+      "name": "System Refactor Thinking 思维模式",
+      "description": "思维模式，指导AI的思考方式",
+      "reference": "@project://.promptx/resource/domain/system-refactor-architect/thought/system-refactor-thinking.thought.md",
+      "metadata": {
+        "createdAt": "2025-06-15T21:57:21.480Z",
+        "updatedAt": "2025-06-15T21:57:21.480Z",
+        "scannedAt": "2025-06-15T21:57:21.480Z"
+      }
+    },
+    {
+      "id": "system-refactor-process",
+      "source": "project",
+      "protocol": "execution",
+      "name": "System Refactor Process 执行模式",
+      "description": "执行模式，定义具体的行为模式",
+      "reference": "@project://.promptx/resource/domain/system-refactor-architect/execution/system-refactor-process.execution.md",
+      "metadata": {
+        "createdAt": "2025-06-15T21:57:21.481Z",
+        "updatedAt": "2025-06-15T21:57:21.481Z",
+        "scannedAt": "2025-06-15T21:57:21.481Z"
+      }
+    }
+  ],
+  "stats": {
+    "totalResources": 3,
+    "byProtocol": {
+      "role": 1,
+      "thought": 1,
+      "execution": 1
+    },
+    "bySource": {
+      "project": 3
+    }
+  }
+}

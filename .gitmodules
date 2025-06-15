@@ -1,0 +1,4 @@
+[submodule "external/dbgpt"]
+	path = external/dbgpt
+	url = https://github.com/eosphoros-ai/DB-GPT.git
+	branch = main

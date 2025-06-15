@@ -1,0 +1,94 @@
+# 数据存储Pod - sjufxxi项目
+# 包含PostgreSQL和Redis服务
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: data-storage-pod
+  labels:
+    app: sjufxxi
+    tier: data
+    component: storage
+spec:
+  containers:
+  - name: postgres
+    image: postgres:15-alpine
+    ports:
+    - containerPort: 5432
+      name: postgres-port
+    env:
+    - name: POSTGRES_PASSWORD
+      value: "difyai123456"
+    - name: POSTGRES_DB
+      value: "dify"
+    - name: PGDATA
+      value: "/var/lib/postgresql/data/pgdata"
+    volumeMounts:
+    - name: postgres-data
+      mountPath: /var/lib/postgresql/data
+    livenessProbe:
+      exec:
+        command:
+        - pg_isready
+        - -U
+        - postgres
+        - -d
+        - dify
+      initialDelaySeconds: 30
+      periodSeconds: 10
+    readinessProbe:
+      exec:
+        command:
+        - pg_isready
+        - -U
+        - postgres
+        - -d
+        - dify
+      initialDelaySeconds: 5
+      periodSeconds: 5
+
+  - name: redis
+    image: redis:6-alpine
+    ports:
+    - containerPort: 6379
+      name: redis-port
+    env:
+    - name: REDISCLI_AUTH
+      value: "difyai123456"
+    volumeMounts:
+    - name: redis-data
+      mountPath: /data
+    command: ["redis-server", "--requirepass", "difyai123456"]
+    livenessProbe:
+      exec:
+        command:
+        - redis-cli
+        - ping
+      initialDelaySeconds: 30
+      periodSeconds: 10
+    readinessProbe:
+      exec:
+        command:
+        - redis-cli
+        - ping
+      initialDelaySeconds: 5
+      periodSeconds: 5
+
+  volumes:
+  - name: postgres-data
+    hostPath:
+      path: /home/qinshu/data/postgres
+      type: DirectoryOrCreate
+  - name: redis-data
+    hostPath:
+      path: /home/qinshu/data/redis
+      type: DirectoryOrCreate
+
+  restartPolicy: Always
+  
+  # 安全上下文 - rootless兼容
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 999
+    runAsGroup: 999
+    fsGroup: 999

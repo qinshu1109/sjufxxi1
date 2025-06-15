@@ -15,11 +15,13 @@ echo "- fs: 文件系统操作"
 echo "- github: GitHub仓库管理"
 echo "- git: Git版本控制"
 echo "- fetch: HTTP请求"
+echo "- promptx: AI专业角色增强系统 🎭"
 echo ""
 echo "Claude Code将自动检测MCP工具并提供以下功能:"
 echo "1. 自动创建GitHub仓库"
 echo "2. 推送项目文件"
 echo "3. 处理OAuth认证"
+echo "4. PromptX专业角色和记忆管理"
 echo ""
 
 cd /home/qinshu/douyin-analytics

@@ -1,6 +1,6 @@
 # 🎉 MCP工具生态系统已完整配置
 
-## ✅ 已配置的10个MCP工具
+## ✅ 已配置的11个MCP工具
 
 | 工具名 | 功能描述 | 命令 | 状态 |
 |--------|----------|------|------|
@@ -14,6 +14,34 @@
 | **autogui** | GUI自动化操作 | pipx run screen-pilot-mcp | ✅ 就绪 |
 | **time** | 时间管理服务 | python3 -m mcp_server_time | ✅ 就绪 |
 | **vision** | 计算机视觉(OpenCV) | python3 -m opencv_mcp_server | ✅ 就绪 |
+| **promptx** | AI专业角色增强系统 | npx -y -f dpml-prompt@snapshot mcp-server | ✅ 就绪 |
+
+## 🎭 PromptX AI专业角色增强系统
+
+**新增功能：** PromptX 为 AI 应用提供专业角色、记忆管理和知识体系
+
+### PromptX 核心功能
+- **🎭 专业角色扮演**: 提供覆盖不同领域的专家角色
+- **🧠 长期记忆与知识库**: AI能够记住关键信息和偏好
+- **📚 知识学习系统**: 让AI学习特定的知识或技能
+- **🔍 智能记忆检索**: 从记忆库中查找历史信息
+
+### PromptX 可用工具
+- `promptx_init`: 🏗️ 系统初始化 - 自动准备工作环境
+- `promptx_hello`: 👋 角色发现 - 浏览所有可用的专家角色
+- `promptx_action`: ⚡ 角色激活 - 一键变身指定领域的专家
+- `promptx_learn`: 📚 知识学习 - 让AI学习特定的知识或技能
+- `promptx_recall`: 🔍 记忆检索 - 从记忆库中查找历史信息
+- `promptx_remember`: 💾 经验保存 - 将重要信息存入长期记忆
+
+### 🎭 特色角色：女娲（Nuwa）
+**女娲角色**是 PromptX 系统中的专业角色创造顾问，具备以下核心能力：
+- **🎯 需求洞察**：快速理解用户需求并提取关键信息
+- **🏗️ 角色设计**：基于 DPML 协议创造专业 AI 助手角色
+- **⚡ 快速交付**：3步极简流程，2分钟内完成角色创建
+- **🔧 系统集成**：确保创建的角色与 PromptX 系统完美兼容
+
+**激活女娲角色**：`promptx_action nuwa`
 
 ## 🚀 GitHub自动化推送功能
 
@@ -67,23 +95,40 @@ claude --mcp-config=/home/qinshu/MCP工具/mcp-config.json
 
 ## 🎯 推荐使用流程
 
-### 第一步：启动MCP会话
+### 第一步：启动增强的MCP会话（包含PromptX）
 ```bash
 cd /home/qinshu/douyin-analytics
-./scripts/push_with_mcp.sh
+./scripts/launch_promptx_mcp.sh
 ```
 
-### 第二步：一键推送
+### 第二步：激活女娲角色
 在Claude Code中说：
+```
+请使用 promptx_action nuwa 激活女娲角色
+```
+
+### 第三步：使用专业功能
+**GitHub自动化推送：**
 ```
 使用GitHub MCP工具创建douyin-analytics仓库并推送项目，如需认证请自动打开浏览器
 ```
 
-### 第三步：自动化完成
-- ✅ 仓库自动创建
-- ✅ 文件自动推送  
-- ✅ 浏览器自动打开进行OAuth
-- ✅ 返回GitHub仓库链接
+**创建自定义角色：**
+```
+我需要一个[领域]专家角色，具备[具体能力]
+```
+
+**记忆管理：**
+```
+请使用 promptx_remember 保存这个重要信息：[信息内容]
+请使用 promptx_recall 检索关于[主题]的记忆
+```
+
+### 第四步：自动化完成
+- ✅ 仓库自动创建和推送
+- ✅ 专业角色快速生成
+- ✅ 智能记忆管理
+- ✅ 女娲角色创造顾问服务
 
 ## 💡 高级用法示例
 
