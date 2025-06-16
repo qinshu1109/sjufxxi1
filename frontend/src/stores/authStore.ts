@@ -17,13 +17,13 @@ interface AuthState {
   token: string | null;
   isAuthenticated: boolean;
   isLoading: boolean;
-  
+
   // Actions
   login: (user: User, token: string) => void;
   logout: () => void;
   updateUser: (user: Partial<User>) => void;
   setLoading: (loading: boolean) => void;
-  
+
   // Permission helpers
   hasPermission: (permission: string) => boolean;
   hasRole: (role: string) => boolean;
@@ -49,7 +49,7 @@ export const useAuthStore = create<AuthState>()(
       token: null,
       isAuthenticated: false,
       isLoading: false,
-      
+
       login: (user: User, token: string) => {
         set({
           user,
@@ -57,13 +57,13 @@ export const useAuthStore = create<AuthState>()(
           isAuthenticated: true,
           isLoading: false,
         });
-        
+
         // 设置 axios 默认 header
         if (typeof window !== 'undefined') {
           localStorage.setItem('auth-token', token);
         }
       },
-      
+
       logout: () => {
         set({
           user: null,
@@ -71,13 +71,13 @@ export const useAuthStore = create<AuthState>()(
           isAuthenticated: false,
           isLoading: false,
         });
-        
+
         // 清除 token
         if (typeof window !== 'undefined') {
           localStorage.removeItem('auth-token');
         }
       },
-      
+
       updateUser: (userData: Partial<User>) => {
         const { user } = get();
         if (user) {
@@ -86,38 +86,38 @@ export const useAuthStore = create<AuthState>()(
           });
         }
       },
-      
+
       setLoading: (loading: boolean) => {
         set({ isLoading: loading });
       },
-      
+
       hasPermission: (permission: string) => {
         const { user } = get();
         if (!user) return false;
-        
+
         // 管理员拥有所有权限
         if (user.role === 'admin') return true;
-        
+
         return user.permissions.includes(permission);
       },
-      
+
       hasRole: (role: string) => {
         const { user } = get();
         if (!user) return false;
-        
+
         return user.role === role;
       },
-      
+
       canAccess: (path: string) => {
         const { user, hasPermission, hasRole } = get();
         if (!user) return false;
-        
+
         // 获取路径所需权限
         const requiredPermissions = routePermissions[path];
         if (!requiredPermissions) return true; // 无权限要求的路由
-        
+
         // 检查是否有任一所需权限
-        return requiredPermissions.some(permission => {
+        return requiredPermissions.some((permission) => {
           // 如果是角色检查
           if (permission === 'admin' || permission === 'user') {
             return hasRole(permission);
@@ -134,8 +134,8 @@ export const useAuthStore = create<AuthState>()(
         token: state.token,
         isAuthenticated: state.isAuthenticated,
       }),
-    }
-  )
+    },
+  ),
 );
 
 // 初始化时恢复认证状态
@@ -161,7 +161,7 @@ if (typeof window !== 'undefined') {
       ],
       createdAt: new Date().toISOString(),
     };
-    
+
     useAuthStore.getState().login(mockUser, token);
   }
 }

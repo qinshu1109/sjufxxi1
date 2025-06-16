@@ -30,7 +30,7 @@ const ProtectedRoute = ({
   if (requiredRole && !hasRole(requiredRole)) {
     return (
       fallback || (
-        <div className="min-h-screen flex items-center justify-center">
+        <div className="flex min-h-screen items-center justify-center">
           <Result
             status="403"
             title="权限不足"
@@ -48,14 +48,14 @@ const ProtectedRoute = ({
 
   // 检查具体权限
   if (requiredPermissions.length > 0) {
-    const hasRequiredPermissions = requiredPermissions.some(permission => 
-      hasPermission(permission)
+    const hasRequiredPermissions = requiredPermissions.some((permission) =>
+      hasPermission(permission),
     );
 
     if (!hasRequiredPermissions) {
       return (
         fallback || (
-          <div className="min-h-screen flex items-center justify-center">
+          <div className="flex min-h-screen items-center justify-center">
             <Result
               status="403"
               title="权限不足"
@@ -76,7 +76,7 @@ const ProtectedRoute = ({
   if (!canAccess(location.pathname)) {
     return (
       fallback || (
-        <div className="min-h-screen flex items-center justify-center">
+        <div className="flex min-h-screen items-center justify-center">
           <Result
             status="403"
             title="访问受限"

@@ -81,55 +81,46 @@ LIMIT 10;`);
   };
 
   return (
-    <div className="h-full flex flex-col bg-bg-primary">
+    <div className="flex h-full flex-col bg-bg-primary">
       {/* 顶部工具栏 */}
-      <div className="flex items-center justify-between p-4 border-b border-border-primary bg-bg-card">
+      <div className="flex items-center justify-between border-b border-border-primary bg-bg-card p-4">
         <div>
           <Title level={4} className="mb-0">
             SQL 实验室
           </Title>
-          <Text className="text-text-secondary text-sm">
-            编写和执行 SQL 查询，分析抖音数据
-          </Text>
+          <Text className="text-sm text-text-secondary">编写和执行 SQL 查询，分析抖音数据</Text>
         </div>
 
         <Space>
-          <Button
-            type="primary"
-            icon={<PlayCircleOutlined />}
-            onClick={handleRunQuery}
-          >
+          <Button type="primary" icon={<PlayCircleOutlined />} onClick={handleRunQuery}>
             执行查询
           </Button>
-          <Button
-            icon={<SaveOutlined />}
-            onClick={handleSaveQuery}
-          >
+          <Button icon={<SaveOutlined />} onClick={handleSaveQuery}>
             保存查询
           </Button>
-          <Button icon={<HistoryOutlined />}>
-            查询历史
-          </Button>
+          <Button icon={<HistoryOutlined />}>查询历史</Button>
         </Space>
       </div>
 
       {/* 主要内容区域 */}
-      <div className="flex-1 flex">
+      <div className="flex flex-1">
         {/* 左侧：SQL 编辑器 */}
         <div className="w-1/2 border-r border-border-primary">
           <div className="p-4">
-            <Text strong className="block mb-2">SQL 查询编辑器</Text>
+            <Text strong className="mb-2 block">
+              SQL 查询编辑器
+            </Text>
             <textarea
               value={sqlQuery}
               onChange={(e) => setSqlQuery(e.target.value)}
-              className="w-full h-96 p-3 border border-border-primary rounded-lg font-mono text-sm resize-none focus:outline-none focus:ring-2 focus:ring-primary-500"
+              className="h-96 w-full resize-none rounded-lg border border-border-primary p-3 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
               placeholder="在此输入您的 SQL 查询..."
             />
           </div>
         </div>
 
         {/* 右侧：结果和工具 */}
-        <div className="w-1/2 flex flex-col">
+        <div className="flex w-1/2 flex-col">
           <Tabs defaultActiveKey="results" className="flex-1">
             <TabPane tab="查询结果" key="results">
               <div className="p-4">
@@ -146,9 +137,7 @@ LIMIT 10;`);
             <TabPane tab="执行计划" key="plan">
               <div className="p-4">
                 <Card size="small">
-                  <Text className="text-text-secondary">
-                    查询执行计划将在此显示...
-                  </Text>
+                  <Text className="text-text-secondary">查询执行计划将在此显示...</Text>
                 </Card>
               </div>
             </TabPane>
@@ -179,18 +168,16 @@ LIMIT 10;`);
       </div>
 
       {/* 底部状态栏 */}
-      <div className="p-2 border-t border-border-primary bg-bg-secondary">
+      <div className="border-t border-border-primary bg-bg-secondary p-2">
         <div className="flex items-center justify-between text-sm text-text-secondary">
           <div>
             <Text className="text-xs">
-              连接状态: <span className="text-green-500">已连接</span> |
-              数据库: <span className="text-primary-500">analytics</span>
+              连接状态: <span className="text-green-500">已连接</span> | 数据库:{' '}
+              <span className="text-primary-500">analytics</span>
             </Text>
           </div>
           <div>
-            <Text className="text-xs">
-              行数: {queryResults.length} | 执行时间: 0.05s
-            </Text>
+            <Text className="text-xs">行数: {queryResults.length} | 执行时间: 0.05s</Text>
           </div>
         </div>
       </div>

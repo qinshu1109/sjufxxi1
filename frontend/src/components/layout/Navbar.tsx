@@ -10,15 +10,7 @@ import {
   SunOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import {
-  Avatar,
-  Badge,
-  Button,
-  Divider,
-  Dropdown,
-  Tooltip,
-  Typography,
-} from 'antd';
+import { Avatar, Badge, Button, Divider, Dropdown, Tooltip, Typography } from 'antd';
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -134,7 +126,7 @@ const Navbar = ({ collapsed, onToggle }: NavbarProps) => {
     {
       key: 'view-all',
       label: (
-        <div className="text-center py-1">
+        <div className="py-1 text-center">
           <Text type="secondary">查看全部通知</Text>
         </div>
       ),
@@ -146,7 +138,7 @@ const Navbar = ({ collapsed, onToggle }: NavbarProps) => {
   const isAIPage = location.pathname.startsWith('/ai/');
 
   return (
-    <div className="flex items-center justify-between h-16 px-6 bg-bg-card border-b border-border-primary">
+    <div className="flex h-16 items-center justify-between border-b border-border-primary bg-bg-card px-6">
       {/* 左侧：Logo + 菜单切换 */}
       <div className="flex items-center space-x-4">
         {/* 菜单切换按钮 - AI页面时隐藏 */}
@@ -155,20 +147,17 @@ const Navbar = ({ collapsed, onToggle }: NavbarProps) => {
             type="text"
             icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
             onClick={onToggle}
-            className="flex items-center justify-center w-8 h-8"
+            className="flex h-8 w-8 items-center justify-center"
           />
         )}
 
         {/* Logo */}
-        <div
-          className="flex items-center space-x-3 cursor-pointer"
-          onClick={() => navigate('/')}
-        >
-          <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-sm">DY</span>
+        <div className="flex cursor-pointer items-center space-x-3" onClick={() => navigate('/')}>
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary-500 to-secondary-500">
+            <span className="text-sm font-bold text-white">DY</span>
           </div>
           <div className="hidden md:block">
-            <Text strong className="text-lg text-gradient">
+            <Text strong className="text-gradient text-lg">
               抖音数据分析平台
             </Text>
           </div>
@@ -176,9 +165,9 @@ const Navbar = ({ collapsed, onToggle }: NavbarProps) => {
 
         {/* AI页面标识 */}
         {isAIPage && (
-          <div className="flex items-center space-x-2 px-3 py-1 bg-primary-50 dark:bg-primary-900 rounded-full">
-            <div className="w-2 h-2 bg-primary-500 rounded-full animate-pulse"></div>
-            <Text className="text-primary-600 dark:text-primary-400 text-sm font-medium">
+          <div className="flex items-center space-x-2 rounded-full bg-primary-50 px-3 py-1 dark:bg-primary-900">
+            <div className="h-2 w-2 animate-pulse rounded-full bg-primary-500"></div>
+            <Text className="text-sm font-medium text-primary-600 dark:text-primary-400">
               AI 助手
             </Text>
           </div>
@@ -193,20 +182,16 @@ const Navbar = ({ collapsed, onToggle }: NavbarProps) => {
             type="text"
             icon={isDark ? <SunOutlined /> : <MoonOutlined />}
             onClick={toggleTheme}
-            className="flex items-center justify-center w-8 h-8"
+            className="flex h-8 w-8 items-center justify-center"
           />
         </Tooltip>
 
         {/* 语言切换 */}
-        <Dropdown
-          menu={{ items: languageMenuItems }}
-          placement="bottomRight"
-          trigger={['click']}
-        >
+        <Dropdown menu={{ items: languageMenuItems }} placement="bottomRight" trigger={['click']}>
           <Button
             type="text"
             icon={<GlobalOutlined />}
-            className="flex items-center justify-center w-8 h-8"
+            className="flex h-8 w-8 items-center justify-center"
           />
         </Dropdown>
 
@@ -217,10 +202,7 @@ const Navbar = ({ collapsed, onToggle }: NavbarProps) => {
           trigger={['click']}
           overlayStyle={{ width: 300 }}
         >
-          <Button
-            type="text"
-            className="flex items-center justify-center w-8 h-8"
-          >
+          <Button type="text" className="flex h-8 w-8 items-center justify-center">
             <Badge count={notificationCount} size="small">
               <BellOutlined />
             </Badge>
@@ -230,12 +212,8 @@ const Navbar = ({ collapsed, onToggle }: NavbarProps) => {
         <Divider type="vertical" className="h-6" />
 
         {/* 用户信息 */}
-        <Dropdown
-          menu={{ items: userMenuItems }}
-          placement="bottomRight"
-          trigger={['click']}
-        >
-          <div className="flex items-center space-x-2 cursor-pointer hover:bg-bg-hover rounded-lg px-2 py-1 transition-colors">
+        <Dropdown menu={{ items: userMenuItems }} placement="bottomRight" trigger={['click']}>
+          <div className="flex cursor-pointer items-center space-x-2 rounded-lg px-2 py-1 transition-colors hover:bg-bg-hover">
             <Avatar
               size="small"
               src={user?.avatar}
@@ -243,9 +221,7 @@ const Navbar = ({ collapsed, onToggle }: NavbarProps) => {
               className="bg-primary-500"
             />
             <div className="hidden md:block">
-              <Text className="text-sm font-medium">
-                {user?.name || '用户'}
-              </Text>
+              <Text className="text-sm font-medium">{user?.name || '用户'}</Text>
             </div>
           </div>
         </Dropdown>

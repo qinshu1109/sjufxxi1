@@ -1,0 +1,9 @@
+{
+  "buildTime": "2025-06-16T02:34:26Z",
+  "buildSize": "130M",
+  "fileCount": 445,
+  "nodeVersion": "v22.16.0",
+  "packageManager": "npm",
+  "sourceDir": "/home/qinshu/douyin-analytics/external/dbgpt/web",
+  "outputDir": "/home/qinshu/douyin-analytics/frontend/public/ai"
+}

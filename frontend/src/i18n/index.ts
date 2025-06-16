@@ -22,16 +22,16 @@ i18n
     resources,
     fallbackLng: 'zh',
     lng: 'zh', // 默认语言
-    
+
     interpolation: {
       escapeValue: false, // React 已经安全处理了
     },
-    
+
     detection: {
       order: ['localStorage', 'navigator', 'htmlTag'],
       caches: ['localStorage'],
     },
-    
+
     react: {
       useSuspense: false,
     },

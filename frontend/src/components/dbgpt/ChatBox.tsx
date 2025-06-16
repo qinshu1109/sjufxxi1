@@ -14,7 +14,7 @@ interface ChatBoxProps {
 /**
  * DB-GPT ChatBox 组件包装器
  * 这个组件将在 DB-GPT 构建完成后替换为实际的 DB-GPT React 组件
- * 
+ *
  * 使用方式:
  * import { ChatBox } from '@/components/dbgpt/ChatBox';
  * <ChatBox theme="light" apiBaseUrl="/api/ai" />
@@ -128,21 +128,19 @@ const ChatBox = ({
 
   // 重试加载
   const handleRetry = () => {
-    setRetryCount(prev => prev + 1);
+    setRetryCount((prev) => prev + 1);
   };
 
   // 渲染加载状态
   if (loading) {
     return (
       <div
-        className={`flex items-center justify-center h-full min-h-96 ${className}`}
+        className={`flex h-full min-h-96 items-center justify-center ${className}`}
         style={style}
       >
         <div className="text-center">
           <Spin size="large" />
-          <div className="mt-4 text-text-secondary">
-            正在加载 AI 聊天组件...
-          </div>
+          <div className="mt-4 text-text-secondary">正在加载 AI 聊天组件...</div>
         </div>
       </div>
     );
@@ -152,7 +150,7 @@ const ChatBox = ({
   if (error) {
     return (
       <div
-        className={`flex items-center justify-center h-full min-h-96 ${className}`}
+        className={`flex h-full min-h-96 items-center justify-center ${className}`}
         style={style}
       >
         <Alert
@@ -161,11 +159,7 @@ const ChatBox = ({
           type="error"
           showIcon
           action={
-            <Button
-              size="small"
-              icon={<ReloadOutlined />}
-              onClick={handleRetry}
-            >
+            <Button size="small" icon={<ReloadOutlined />} onClick={handleRetry}>
               重试
             </Button>
           }
@@ -176,14 +170,11 @@ const ChatBox = ({
 
   // 渲染 DB-GPT 组件
   return (
-    <div
-      className={`relative h-full ${className}`}
-      style={style}
-    >
+    <div className={`relative h-full ${className}`} style={style}>
       {/* 实际的 DB-GPT iframe 或模拟组件 */}
       <iframe
         ref={iframeRef}
-        className="w-full h-full border-0"
+        className="h-full w-full border-0"
         title="DB-GPT Chat Interface"
         sandbox="allow-scripts allow-same-origin allow-forms"
         style={{
@@ -194,10 +185,8 @@ const ChatBox = ({
 
       {/* 开发提示 */}
       {import.meta.env.DEV && (
-        <div className="absolute top-2 right-2 z-10">
-          <div className="bg-blue-500 text-white text-xs px-2 py-1 rounded">
-            DB-GPT Mock
-          </div>
+        <div className="absolute right-2 top-2 z-10">
+          <div className="rounded bg-blue-500 px-2 py-1 text-xs text-white">DB-GPT Mock</div>
         </div>
       )}
     </div>

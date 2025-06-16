@@ -17,8 +17,8 @@ const useI18nStore = create<I18nState>()(
     }),
     {
       name: 'i18n-storage',
-    }
-  )
+    },
+  ),
 );
 
 export const useI18n = () => {

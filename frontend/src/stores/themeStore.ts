@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { themeManager, baseColors } from '@/config/theme.config';
 
 interface ThemeState {
   isDark: boolean;
@@ -13,30 +14,29 @@ export const useThemeStore = create<ThemeState>()(
   persist(
     (set, get) => ({
       isDark: false,
-      primaryColor: '#ef4444',
-      
+      primaryColor: baseColors.primary[500], // 使用统一的颜色定义
+
       toggleTheme: () => {
         const { isDark } = get();
-        set({ isDark: !isDark });
-        
-        // 更新 HTML 属性
-        document.documentElement.setAttribute('data-theme', !isDark ? 'dark' : 'light');
-        document.documentElement.className = !isDark ? 'dark' : '';
+        const newIsDark = !isDark;
+        set({ isDark: newIsDark });
+
+        // 使用统一的主题管理器
+        themeManager.setTheme(newIsDark);
       },
-      
+
       setPrimaryColor: (color: string) => {
         set({ primaryColor: color });
-        
-        // 更新 CSS 变量
-        document.documentElement.style.setProperty('--primary', color);
+
+        // 使用统一的主题管理器
+        themeManager.setPrimaryColor(color);
       },
-      
+
       setTheme: (isDark: boolean) => {
         set({ isDark });
-        
-        // 更新 HTML 属性
-        document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-        document.documentElement.className = isDark ? 'dark' : '';
+
+        // 使用统一的主题管理器
+        themeManager.setTheme(isDark);
       },
     }),
     {
@@ -45,6 +45,6 @@ export const useThemeStore = create<ThemeState>()(
         isDark: state.isDark,
         primaryColor: state.primaryColor,
       }),
-    }
-  )
+    },
+  ),
 );

@@ -13,21 +13,19 @@ const AuthLayout = () => {
       <Content className="flex items-center justify-center p-6">
         <div className="w-full max-w-md">
           {/* Logo 和标题 */}
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-2xl mb-4">
-              <span className="text-white font-bold text-2xl">DY</span>
+          <div className="mb-8 text-center">
+            <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary-500 to-secondary-500">
+              <span className="text-2xl font-bold text-white">DY</span>
             </div>
-            <Title level={2} className="mb-2 text-gradient">
+            <Title level={2} className="text-gradient mb-2">
               抖音数据分析平台
             </Title>
-            <Text className="text-text-secondary">
-              智能数据分析与AI助手
-            </Text>
+            <Text className="text-text-secondary">智能数据分析与AI助手</Text>
           </div>
 
           {/* 认证表单 */}
-          <div 
-            className="bg-bg-card rounded-2xl shadow-lg p-8 border border-border-primary"
+          <div
+            className="rounded-2xl border border-border-primary bg-bg-card p-8 shadow-lg"
             style={{
               background: isDark ? '#1f2937' : '#ffffff',
             }}
@@ -36,14 +34,14 @@ const AuthLayout = () => {
           </div>
 
           {/* 底部信息 */}
-          <div className="text-center mt-8">
+          <div className="mt-8 text-center">
             <Space split={<span className="text-text-muted">•</span>}>
-              <Text className="text-text-muted text-sm">隐私政策</Text>
-              <Text className="text-text-muted text-sm">服务条款</Text>
-              <Text className="text-text-muted text-sm">帮助中心</Text>
+              <Text className="text-sm text-text-muted">隐私政策</Text>
+              <Text className="text-sm text-text-muted">服务条款</Text>
+              <Text className="text-sm text-text-muted">帮助中心</Text>
             </Space>
             <div className="mt-4">
-              <Text className="text-text-muted text-xs">
+              <Text className="text-xs text-text-muted">
                 © 2025 抖音数据分析平台. All rights reserved.
               </Text>
             </div>

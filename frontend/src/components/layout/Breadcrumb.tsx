@@ -46,12 +46,7 @@ const Breadcrumb = () => {
     return items;
   };
 
-  return (
-    <AntdBreadcrumb
-      items={getBreadcrumbItems()}
-      className="text-text-secondary"
-    />
-  );
+  return <AntdBreadcrumb items={getBreadcrumbItems()} className="text-text-secondary" />;
 };
 
 export default Breadcrumb;

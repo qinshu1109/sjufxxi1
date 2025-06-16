@@ -5,7 +5,7 @@ const NotFound = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="flex min-h-screen items-center justify-center">
       <Result
         status="404"
         title="404"
@@ -15,9 +15,7 @@ const NotFound = () => {
             <Button type="primary" onClick={() => navigate('/dashboard')}>
               返回首页
             </Button>
-            <Button onClick={() => navigate(-1)}>
-              返回上一页
-            </Button>
+            <Button onClick={() => navigate(-1)}>返回上一页</Button>
           </div>
         }
       />

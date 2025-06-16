@@ -10,16 +10,14 @@ import MainLayout from '@/components/layout/MainLayout';
 
 // 加载中组件
 const PageLoading = () => (
-  <div className="flex items-center justify-center min-h-screen">
+  <div className="flex min-h-screen items-center justify-center">
     <Spin size="large" tip="加载中..." />
   </div>
 );
 
 // 懒加载组件包装器
 const LazyWrapper = ({ children }: { children: React.ReactNode }) => (
-  <Suspense fallback={<PageLoading />}>
-    {children}
-  </Suspense>
+  <Suspense fallback={<PageLoading />}>{children}</Suspense>
 );
 
 // 懒加载页面组件

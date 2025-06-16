@@ -66,9 +66,7 @@ const Dashboard = () => {
           <Title level={2} className="mb-2">
             数据概览
           </Title>
-          <Text className="text-text-secondary">
-            欢迎回来！这里是您的数据分析仪表板
-          </Text>
+          <Text className="text-text-secondary">欢迎回来！这里是您的数据分析仪表板</Text>
         </div>
         <Button type="primary" size="large">
           刷新数据
@@ -90,19 +88,16 @@ const Dashboard = () => {
               />
               <div className="mt-2 flex items-center">
                 {stat.trend === 'up' ? (
-                  <ArrowUpOutlined className="text-green-500 mr-1" />
+                  <ArrowUpOutlined className="mr-1 text-green-500" />
                 ) : (
-                  <ArrowDownOutlined className="text-red-500 mr-1" />
+                  <ArrowDownOutlined className="mr-1 text-red-500" />
                 )}
                 <Text
-                  className={`text-sm ${stat.trend === 'up' ? 'text-green-500' : 'text-red-500'
-                    }`}
+                  className={`text-sm ${stat.trend === 'up' ? 'text-green-500' : 'text-red-500'}`}
                 >
                   {stat.trendValue}%
                 </Text>
-                <Text className="text-text-muted text-sm ml-1">
-                  较上周
-                </Text>
+                <Text className="ml-1 text-sm text-text-muted">较上周</Text>
               </div>
             </Card>
           </Col>
@@ -117,15 +112,13 @@ const Dashboard = () => {
               <Card
                 hoverable
                 className="h-full cursor-pointer transition-all duration-200 hover:shadow-md"
-                onClick={() => window.location.href = action.path}
+                onClick={() => (window.location.href = action.path)}
               >
                 <div className="text-center">
                   <Title level={4} className="mb-2">
                     {action.title}
                   </Title>
-                  <Text className="text-text-secondary">
-                    {action.description}
-                  </Text>
+                  <Text className="text-text-secondary">{action.description}</Text>
                 </div>
               </Card>
             </Col>
@@ -142,13 +135,14 @@ const Dashboard = () => {
             { time: '10 分钟前', action: 'AI助手回答了用户问题', type: 'ai' },
             { time: '15 分钟前', action: '数据同步任务完成', type: 'sync' },
           ].map((activity, index) => (
-            <div key={index} className="flex items-center justify-between py-2 border-b border-border-primary last:border-b-0">
+            <div
+              key={index}
+              className="flex items-center justify-between border-b border-border-primary py-2 last:border-b-0"
+            >
               <div>
                 <Text>{activity.action}</Text>
               </div>
-              <Text className="text-text-muted text-sm">
-                {activity.time}
-              </Text>
+              <Text className="text-sm text-text-muted">{activity.time}</Text>
             </div>
           ))}
         </div>

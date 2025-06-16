@@ -1,0 +1,214 @@
+/**
+ * 主题覆盖样式
+ * 确保 Ant Design 组件样式优先于 Tailwind 工具类
+ */
+
+/* Ant Design 组件样式优先级提升 */
+.ant-btn,
+.ant-input,
+.ant-input-affix-wrapper,
+.ant-select,
+.ant-picker,
+.ant-checkbox-wrapper,
+.ant-radio-wrapper,
+.ant-switch,
+.ant-slider,
+.ant-upload,
+.ant-rate,
+.ant-progress,
+.ant-badge,
+.ant-tag,
+.ant-alert,
+.ant-message,
+.ant-notification,
+.ant-modal,
+.ant-drawer,
+.ant-popover,
+.ant-tooltip,
+.ant-dropdown,
+.ant-menu,
+.ant-tabs,
+.ant-card,
+.ant-table,
+.ant-list,
+.ant-descriptions,
+.ant-form,
+.ant-steps,
+.ant-collapse,
+.ant-tree,
+.ant-timeline,
+.ant-calendar,
+.ant-spin {
+  /* 使用 CSS 变量确保主题一致性 */
+  --tw-shadow: var(--shadow-md) !important;
+}
+
+/* Button 组件主题覆盖 */
+.ant-btn-primary {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: var(--primary-hover) !important;
+  border-color: var(--primary-hover) !important;
+}
+
+.ant-btn-primary:active {
+  background-color: var(--primary-active) !important;
+  border-color: var(--primary-active) !important;
+}
+
+/* Input 组件主题覆盖 */
+.ant-input,
+.ant-input-affix-wrapper {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+.ant-input:hover,
+.ant-input-affix-wrapper:hover {
+  border-color: var(--border-secondary) !important;
+}
+
+.ant-input:focus,
+.ant-input-focused,
+.ant-input-affix-wrapper:focus,
+.ant-input-affix-wrapper-focused {
+  border-color: var(--border-focus) !important;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Card 组件主题覆盖 */
+.ant-card {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Table 组件主题覆盖 */
+.ant-table {
+  background-color: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+}
+
+.ant-table-thead > tr > th {
+  background-color: var(--bg-secondary) !important;
+  border-bottom-color: var(--border-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+.ant-table-tbody > tr > td {
+  border-bottom-color: var(--border-primary) !important;
+}
+
+.ant-table-tbody > tr:hover > td {
+  background-color: var(--bg-hover) !important;
+}
+
+/* Menu 组件主题覆盖 */
+.ant-menu {
+  background-color: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+}
+
+.ant-menu-item:hover {
+  background-color: var(--bg-hover) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: var(--primary-lighter) !important;
+  color: var(--primary) !important;
+}
+
+/* Modal/Drawer 组件主题覆盖 */
+.ant-modal-content,
+.ant-drawer-content {
+  background-color: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+}
+
+.ant-modal-header,
+.ant-drawer-header {
+  background-color: var(--bg-card) !important;
+  border-bottom-color: var(--border-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+.ant-modal-footer,
+.ant-drawer-footer {
+  background-color: var(--bg-card) !important;
+  border-top-color: var(--border-primary) !important;
+}
+
+/* 确保 Tailwind 工具类可以正常工作 */
+.ant-btn.bg-primary {
+  background-color: var(--primary) !important;
+}
+
+.ant-btn.text-white {
+  color: white !important;
+}
+
+/* 自定义滚动条样式应用到 Ant Design 组件 */
+.ant-select-dropdown,
+.ant-drawer-body,
+.ant-modal-body,
+.ant-table-body {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-secondary) var(--bg-secondary);
+}
+
+.ant-select-dropdown::-webkit-scrollbar,
+.ant-drawer-body::-webkit-scrollbar,
+.ant-modal-body::-webkit-scrollbar,
+.ant-table-body::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.ant-select-dropdown::-webkit-scrollbar-track,
+.ant-drawer-body::-webkit-scrollbar-track,
+.ant-modal-body::-webkit-scrollbar-track,
+.ant-table-body::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+.ant-select-dropdown::-webkit-scrollbar-thumb,
+.ant-drawer-body::-webkit-scrollbar-thumb,
+.ant-modal-body::-webkit-scrollbar-thumb,
+.ant-table-body::-webkit-scrollbar-thumb {
+  background: var(--border-secondary);
+  border-radius: 3px;
+}
+
+.ant-select-dropdown::-webkit-scrollbar-thumb:hover,
+.ant-drawer-body::-webkit-scrollbar-thumb:hover,
+.ant-modal-body::-webkit-scrollbar-thumb:hover,
+.ant-table-body::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+  .ant-modal {
+    max-width: calc(100vw - 32px) !important;
+  }
+
+  .ant-drawer {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* 打印样式 */
+@media print {
+  .ant-btn,
+  .ant-input,
+  .ant-select {
+    background-color: white !important;
+    color: black !important;
+    border-color: #d9d9d9 !important;
+  }
+}

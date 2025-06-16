@@ -5,7 +5,7 @@ const ServerError = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="flex min-h-screen items-center justify-center">
       <Result
         status="500"
         title="500"
@@ -15,9 +15,7 @@ const ServerError = () => {
             <Button type="primary" onClick={() => navigate('/dashboard')}>
               返回首页
             </Button>
-            <Button onClick={() => window.location.reload()}>
-              刷新页面
-            </Button>
+            <Button onClick={() => window.location.reload()}>刷新页面</Button>
           </div>
         }
       />

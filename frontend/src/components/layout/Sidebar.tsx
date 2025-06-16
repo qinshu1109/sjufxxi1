@@ -174,11 +174,11 @@ const Sidebar = ({ collapsed }: SidebarProps) => {
   };
 
   return (
-    <div className="h-full flex flex-col">
+    <div className="flex h-full flex-col">
       {/* 侧边栏标题 */}
       {!collapsed && (
-        <div className="p-4 border-b border-border-primary">
-          <Text className="text-text-secondary text-xs font-medium uppercase tracking-wider">
+        <div className="border-b border-border-primary p-4">
+          <Text className="text-xs font-medium uppercase tracking-wider text-text-secondary">
             导航菜单
           </Text>
         </div>
@@ -203,11 +203,9 @@ const Sidebar = ({ collapsed }: SidebarProps) => {
 
       {/* 底部信息 */}
       {!collapsed && (
-        <div className="p-4 border-t border-border-primary">
+        <div className="border-t border-border-primary p-4">
           <div className="text-center">
-            <Text className="text-text-muted text-xs">
-              版本 1.0.0
-            </Text>
+            <Text className="text-xs text-text-muted">版本 1.0.0</Text>
           </div>
         </div>
       )}
