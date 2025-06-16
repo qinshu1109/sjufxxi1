@@ -1,0 +1,166 @@
+{
+  "app": {
+    "title": "抖音数据分析平台",
+    "subtitle": "智能数据分析与AI助手"
+  },
+  "nav": {
+    "dashboard": "仪表板",
+    "analytics": "数据分析",
+    "reports": "报表中心",
+    "settings": "系统设置",
+    "ai": "AI 助手",
+    "ai_chat": "AI 对话",
+    "sql_lab": "SQL 实验室",
+    "visualization": "数据可视化",
+    "workflow": "工作流构建器"
+  },
+  "auth": {
+    "login": "登录",
+    "logout": "退出登录",
+    "register": "注册",
+    "username": "用户名",
+    "password": "密码",
+    "email": "邮箱",
+    "remember_me": "记住我",
+    "forgot_password": "忘记密码",
+    "login_success": "登录成功",
+    "logout_success": "退出成功"
+  },
+  "user": {
+    "profile": "个人资料",
+    "account_settings": "账户设置",
+    "help_center": "帮助中心",
+    "notifications": "通知中心"
+  },
+  "theme": {
+    "light": "亮色主题",
+    "dark": "暗色主题",
+    "switch_to_light": "切换到亮色主题",
+    "switch_to_dark": "切换到暗色主题"
+  },
+  "language": {
+    "chinese": "简体中文",
+    "english": "English"
+  },
+  "common": {
+    "loading": "加载中...",
+    "save": "保存",
+    "cancel": "取消",
+    "confirm": "确认",
+    "delete": "删除",
+    "edit": "编辑",
+    "add": "添加",
+    "search": "搜索",
+    "filter": "筛选",
+    "export": "导出",
+    "import": "导入",
+    "refresh": "刷新",
+    "back": "返回",
+    "next": "下一步",
+    "previous": "上一步",
+    "submit": "提交",
+    "reset": "重置",
+    "clear": "清空",
+    "view": "查看",
+    "download": "下载",
+    "upload": "上传",
+    "copy": "复制",
+    "share": "分享",
+    "print": "打印",
+    "help": "帮助",
+    "close": "关闭",
+    "open": "打开",
+    "expand": "展开",
+    "collapse": "收起",
+    "select_all": "全选",
+    "deselect_all": "取消全选",
+    "no_data": "暂无数据",
+    "error": "错误",
+    "success": "成功",
+    "warning": "警告",
+    "info": "信息"
+  },
+  "dashboard": {
+    "title": "数据概览",
+    "total_users": "总用户数",
+    "active_users": "活跃用户",
+    "revenue": "总收入",
+    "growth_rate": "增长率",
+    "recent_activities": "最近活动",
+    "quick_actions": "快捷操作"
+  },
+  "analytics": {
+    "title": "数据分析",
+    "user_behavior": "用户行为分析",
+    "content_performance": "内容表现分析",
+    "trend_analysis": "趋势分析",
+    "conversion_funnel": "转化漏斗",
+    "cohort_analysis": "队列分析"
+  },
+  "ai": {
+    "chat": {
+      "title": "AI 智能对话",
+      "placeholder": "请输入您的问题...",
+      "send": "发送",
+      "clear_history": "清空历史",
+      "new_conversation": "新建对话",
+      "thinking": "AI 正在思考...",
+      "error": "抱歉，出现了一些问题"
+    },
+    "sql_lab": {
+      "title": "SQL 实验室",
+      "query_editor": "查询编辑器",
+      "run_query": "执行查询",
+      "save_query": "保存查询",
+      "query_history": "查询历史",
+      "results": "查询结果",
+      "explain_plan": "执行计划",
+      "format_sql": "格式化 SQL"
+    },
+    "visualization": {
+      "title": "数据可视化",
+      "chart_types": "图表类型",
+      "data_source": "数据源",
+      "chart_settings": "图表设置",
+      "export_chart": "导出图表"
+    },
+    "workflow": {
+      "title": "工作流构建器",
+      "create_workflow": "创建工作流",
+      "workflow_templates": "工作流模板",
+      "run_workflow": "运行工作流",
+      "workflow_history": "执行历史"
+    }
+  },
+  "reports": {
+    "title": "报表中心",
+    "create_report": "创建报表",
+    "report_templates": "报表模板",
+    "scheduled_reports": "定时报表",
+    "report_history": "报表历史"
+  },
+  "settings": {
+    "title": "系统设置",
+    "general": "通用设置",
+    "security": "安全设置",
+    "integrations": "集成配置",
+    "users": "用户管理",
+    "permissions": "权限管理"
+  },
+  "errors": {
+    "404": "页面未找到",
+    "500": "服务器错误",
+    "403": "权限不足",
+    "network_error": "网络连接错误",
+    "timeout": "请求超时",
+    "unknown_error": "未知错误"
+  },
+  "notifications": {
+    "system_update": "系统更新",
+    "data_sync_complete": "数据同步完成",
+    "report_generated": "报表生成完成",
+    "view_all": "查看全部通知",
+    "mark_as_read": "标记为已读",
+    "clear_all": "清空全部"
+  }
+}

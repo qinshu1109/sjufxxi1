@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="抖音数据分析平台 - 智能数据分析与AI助手" />
+    <meta name="keywords" content="抖音,数据分析,AI,机器学习,商业智能,BI" />
+    <meta name="author" content="抖音数据分析团队" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://analytics.douyin.com/" />
+    <meta property="og:title" content="抖音数据分析平台" />
+    <meta property="og:description" content="智能数据分析与AI助手，助力业务增长" />
+    <meta property="og:image" content="/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://analytics.douyin.com/" />
+    <meta property="twitter:title" content="抖音数据分析平台" />
+    <meta property="twitter:description" content="智能数据分析与AI助手，助力业务增长" />
+    <meta property="twitter:image" content="/twitter-image.png" />
+
+    <!-- 预加载关键资源 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- 预加载 API 域名 -->
+    <link rel="dns-prefetch" href="//localhost:5000" />
+    <link rel="dns-prefetch" href="//api.deepseek.com" />
+    
+    <title>抖音数据分析平台</title>
+    
+    <!-- 主题色 -->
+    <meta name="theme-color" content="#ef4444" />
+    <meta name="msapplication-TileColor" content="#ef4444" />
+    
+    <!-- PWA 支持 -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="抖音数据分析" />
+    
+    <!-- 防止页面缩放 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    <!-- 性能优化 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="format-detection" content="telephone=no" />
+    
+    <style>
+      /* 初始加载样式，防止闪烁 */
+      #root {
+        min-height: 100vh;
+        background-color: #ffffff;
+      }
+      
+      /* 暗色主题初始样式 */
+      @media (prefers-color-scheme: dark) {
+        #root {
+          background-color: #111827;
+        }
+      }
+      
+      /* 加载动画 */
+      .initial-loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #ef4444, #3b82f6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+      }
+      
+      .loading-spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-top: 4px solid white;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      .loading-text {
+        color: white;
+        font-family: Inter, sans-serif;
+        font-size: 16px;
+        margin-top: 20px;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <!-- 初始加载动画 -->
+      <div class="initial-loading" id="initial-loading">
+        <div style="text-align: center;">
+          <div class="loading-spinner"></div>
+          <div class="loading-text">抖音数据分析平台加载中...</div>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      // 移除初始加载动画
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const loading = document.getElementById('initial-loading');
+          if (loading) {
+            loading.style.opacity = '0';
+            loading.style.transition = 'opacity 0.3s ease';
+            setTimeout(function() {
+              loading.remove();
+            }, 300);
+          }
+        }, 500);
+      });
+      
+      // 错误处理
+      window.addEventListener('error', function(e) {
+        console.error('Application error:', e.error);
+        // 可以在这里添加错误上报逻辑
+      });
+      
+      // 性能监控
+      window.addEventListener('load', function() {
+        if ('performance' in window) {
+          const perfData = performance.getEntriesByType('navigation')[0];
+          console.log('Page load time:', perfData.loadEventEnd - perfData.loadEventStart, 'ms');
+        }
+      });
+    </script>
+    
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

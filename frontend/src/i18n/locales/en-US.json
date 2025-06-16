@@ -1,0 +1,166 @@
+{
+  "app": {
+    "title": "TikTok Analytics Platform",
+    "subtitle": "Intelligent Data Analysis & AI Assistant"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "analytics": "Analytics",
+    "reports": "Reports",
+    "settings": "Settings",
+    "ai": "AI Assistant",
+    "ai_chat": "AI Chat",
+    "sql_lab": "SQL Lab",
+    "visualization": "Visualization",
+    "workflow": "Workflow Builder"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "username": "Username",
+    "password": "Password",
+    "email": "Email",
+    "remember_me": "Remember me",
+    "forgot_password": "Forgot password",
+    "login_success": "Login successful",
+    "logout_success": "Logout successful"
+  },
+  "user": {
+    "profile": "Profile",
+    "account_settings": "Account Settings",
+    "help_center": "Help Center",
+    "notifications": "Notifications"
+  },
+  "theme": {
+    "light": "Light Theme",
+    "dark": "Dark Theme",
+    "switch_to_light": "Switch to light theme",
+    "switch_to_dark": "Switch to dark theme"
+  },
+  "language": {
+    "chinese": "简体中文",
+    "english": "English"
+  },
+  "common": {
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "search": "Search",
+    "filter": "Filter",
+    "export": "Export",
+    "import": "Import",
+    "refresh": "Refresh",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "reset": "Reset",
+    "clear": "Clear",
+    "view": "View",
+    "download": "Download",
+    "upload": "Upload",
+    "copy": "Copy",
+    "share": "Share",
+    "print": "Print",
+    "help": "Help",
+    "close": "Close",
+    "open": "Open",
+    "expand": "Expand",
+    "collapse": "Collapse",
+    "select_all": "Select All",
+    "deselect_all": "Deselect All",
+    "no_data": "No Data",
+    "error": "Error",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Info"
+  },
+  "dashboard": {
+    "title": "Data Overview",
+    "total_users": "Total Users",
+    "active_users": "Active Users",
+    "revenue": "Revenue",
+    "growth_rate": "Growth Rate",
+    "recent_activities": "Recent Activities",
+    "quick_actions": "Quick Actions"
+  },
+  "analytics": {
+    "title": "Data Analytics",
+    "user_behavior": "User Behavior Analysis",
+    "content_performance": "Content Performance",
+    "trend_analysis": "Trend Analysis",
+    "conversion_funnel": "Conversion Funnel",
+    "cohort_analysis": "Cohort Analysis"
+  },
+  "ai": {
+    "chat": {
+      "title": "AI Chat",
+      "placeholder": "Please enter your question...",
+      "send": "Send",
+      "clear_history": "Clear History",
+      "new_conversation": "New Conversation",
+      "thinking": "AI is thinking...",
+      "error": "Sorry, something went wrong"
+    },
+    "sql_lab": {
+      "title": "SQL Lab",
+      "query_editor": "Query Editor",
+      "run_query": "Run Query",
+      "save_query": "Save Query",
+      "query_history": "Query History",
+      "results": "Results",
+      "explain_plan": "Execution Plan",
+      "format_sql": "Format SQL"
+    },
+    "visualization": {
+      "title": "Data Visualization",
+      "chart_types": "Chart Types",
+      "data_source": "Data Source",
+      "chart_settings": "Chart Settings",
+      "export_chart": "Export Chart"
+    },
+    "workflow": {
+      "title": "Workflow Builder",
+      "create_workflow": "Create Workflow",
+      "workflow_templates": "Workflow Templates",
+      "run_workflow": "Run Workflow",
+      "workflow_history": "Execution History"
+    }
+  },
+  "reports": {
+    "title": "Reports Center",
+    "create_report": "Create Report",
+    "report_templates": "Report Templates",
+    "scheduled_reports": "Scheduled Reports",
+    "report_history": "Report History"
+  },
+  "settings": {
+    "title": "System Settings",
+    "general": "General",
+    "security": "Security",
+    "integrations": "Integrations",
+    "users": "User Management",
+    "permissions": "Permission Management"
+  },
+  "errors": {
+    "404": "Page Not Found",
+    "500": "Server Error",
+    "403": "Access Denied",
+    "network_error": "Network Error",
+    "timeout": "Request Timeout",
+    "unknown_error": "Unknown Error"
+  },
+  "notifications": {
+    "system_update": "System Update",
+    "data_sync_complete": "Data Sync Complete",
+    "report_generated": "Report Generated",
+    "view_all": "View All Notifications",
+    "mark_as_read": "Mark as Read",
+    "clear_all": "Clear All"
+  }
+}
