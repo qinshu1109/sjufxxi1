@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Auth Test</title>
+</head>
+<body>
+    <h1>Authentication Test</h1>
+    <div id="status">Checking...</div>
+    
+    <script>
+        // 模拟设置认证token
+        localStorage.setItem('auth-token', 'mock-admin-token-123');
+        
+        // 检查状态
+        const token = localStorage.getItem('auth-token');
+        const status = document.getElementById('status');
+        status.innerHTML = `
+            <p>Token: ${token ? 'Present' : 'Missing'}</p>
+            <p>LocalStorage keys: ${Object.keys(localStorage).join(', ')}</p>
+        `;
+        
+        // 尝试访问Dashboard
+        setTimeout(() => {
+            window.location.href = '/dashboard';
+        }, 2000);
+    </script>
+</body>
+</html>

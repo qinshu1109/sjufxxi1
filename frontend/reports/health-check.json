@@ -1,0 +1,53 @@
+{
+  "timestamp": "2025-06-16T04:24:09.869Z",
+  "overall": "healthy",
+  "checks": {
+    "configuration": {
+      "status": "healthy",
+      "files": {
+        "package.json": "valid",
+        "vite.config.ts": "valid",
+        "tsconfig.json": "valid"
+      }
+    },
+    "dependencies": {
+      "status": "healthy",
+      "nodeModulesExists": true,
+      "lockFileExists": true,
+      "dependencyCount": 15,
+      "devDependencyCount": 34
+    },
+    "buildArtifacts": {
+      "status": "healthy",
+      "files": {
+        "dist/index.html": true,
+        "dist/assets": true,
+        "public/ai": true
+      }
+    },
+    "frontend": {
+      "status": "healthy",
+      "responseTime": "unknown",
+      "statusCode": 200
+    },
+    "ports": {
+      "status": "informational",
+      "ports": {
+        "80": {
+          "service": "Dify Platform",
+          "status": "inactive"
+        },
+        "5000": {
+          "service": "AI API Server",
+          "status": "active",
+          "statusCode": 200
+        },
+        "5173": {
+          "service": "Frontend Dev Server",
+          "status": "active",
+          "statusCode": 200
+        }
+      }
+    }
+  }
+}

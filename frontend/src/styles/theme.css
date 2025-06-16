@@ -81,6 +81,37 @@
   --z-popover: 1060;
   --z-tooltip: 1070;
   --z-toast: 1080;
+
+  /* AI Chat 专用变量 */
+  --chat-bubble-user: var(--primary);
+  --chat-bubble-bot: var(--bg-secondary);
+  --chat-input-bg: var(--bg-card);
+  --chat-sidebar-bg: var(--bg-secondary);
+  --chat-avatar-user: var(--primary);
+  --chat-avatar-bot: var(--text-muted);
+
+  /* 代码高亮 */
+  --code-bg: #f6f8fa;
+  --code-border: var(--border-primary);
+  --code-text: var(--text-primary);
+  --code-keyword: #d73a49;
+  --code-string: #032f62;
+  --code-comment: #6a737d;
+
+  /* 数据表格 */
+  --table-header-bg: var(--bg-secondary);
+  --table-border: var(--border-primary);
+  --table-hover: var(--bg-hover);
+
+  /* 状态指示器 */
+  --status-online: #22c55e;
+  --status-busy: #f59e0b;
+  --status-offline: #9ca3af;
+
+  /* 性能指标颜色 */
+  --perf-excellent: var(--success);
+  --perf-good: var(--warning);
+  --perf-poor: var(--error);
 }
 
 /* 暗色主题 */
@@ -127,6 +158,20 @@
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+
+  /* AI Chat 暗色主题 */
+  --chat-bubble-user: var(--primary);
+  --chat-bubble-bot: var(--bg-card);
+  --chat-input-bg: var(--bg-card);
+  --chat-sidebar-bg: var(--bg-secondary);
+
+  /* 代码高亮暗色 */
+  --code-bg: #2d3748;
+  --code-border: var(--border-primary);
+  --code-text: #e2e8f0;
+  --code-keyword: #f56565;
+  --code-string: #68d391;
+  --code-comment: #a0aec0;
 }
 
 /* 全局样式重置 */
@@ -256,5 +301,346 @@ body {
 @media (min-width: 1536px) {
   .container-responsive {
     max-width: 1536px;
+  }
+}
+
+/* ========================================
+   AI Chat 专用样式
+   ======================================== */
+
+.ai-chat-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-primary);
+}
+
+.chat-header {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-primary);
+  padding: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chat-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.messages-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-md);
+  scroll-behavior: smooth;
+}
+
+.message-item {
+  margin-bottom: var(--spacing-md);
+  display: flex;
+  gap: var(--spacing-sm);
+  max-width: 100%;
+}
+
+.message-item.user-message {
+  flex-direction: row-reverse;
+}
+
+.message-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--chat-avatar-bot);
+  color: var(--text-inverse);
+  flex-shrink: 0;
+  font-size: 14px;
+}
+
+.user-message .message-avatar {
+  background: var(--chat-avatar-user);
+  color: white;
+}
+
+.message-content {
+  max-width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.user-message .message-content {
+  align-items: flex-end;
+}
+
+.message-bubble {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-lg);
+  background: var(--chat-bubble-bot);
+  word-wrap: break-word;
+  line-height: var(--line-height-normal);
+  position: relative;
+}
+
+.user-message .message-bubble {
+  background: var(--chat-bubble-user);
+  color: white;
+}
+
+.message-bubble.loading {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.sql-block {
+  margin-top: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background: var(--code-bg);
+  border: 1px solid var(--code-border);
+  border-radius: var(--radius-md);
+  font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+  font-size: var(--font-sm);
+  overflow-x: auto;
+  color: var(--code-text);
+}
+
+.message-time {
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+  margin-top: var(--spacing-xs);
+}
+
+.user-message .message-time {
+  text-align: right;
+}
+
+.input-container {
+  padding: var(--spacing-md);
+  background: var(--chat-input-bg);
+  border-top: 1px solid var(--border-primary);
+}
+
+.input-wrapper {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: flex-end;
+}
+
+.input-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-shrink: 0;
+}
+
+/* SQL Lab 样式 */
+.sql-lab-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-primary);
+}
+
+.sql-editor {
+  background: var(--code-bg);
+  border: 1px solid var(--code-border);
+  border-radius: var(--radius-md);
+  font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+}
+
+.sql-results-table {
+  background: var(--bg-card);
+  border: 1px solid var(--table-border);
+}
+
+.sql-results-table th {
+  background: var(--table-header-bg);
+  border-bottom: 1px solid var(--table-border);
+  padding: var(--spacing-sm);
+  font-weight: 600;
+}
+
+.sql-results-table td {
+  padding: var(--spacing-sm);
+  border-bottom: 1px solid var(--table-border);
+}
+
+.sql-results-table tr:hover {
+  background: var(--table-hover);
+}
+
+/* 状态指示器 */
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-sm);
+}
+
+.status-indicator.online::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--status-online);
+  border-radius: 50%;
+}
+
+.status-indicator.busy::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--status-busy);
+  border-radius: 50%;
+}
+
+.status-indicator.offline::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--status-offline);
+  border-radius: 50%;
+}
+
+/* 性能指标 */
+.perf-metric {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.perf-metric.excellent {
+  background: var(--perf-excellent);
+  color: white;
+}
+
+.perf-metric.good {
+  background: var(--perf-good);
+  color: white;
+}
+
+.perf-metric.poor {
+  background: var(--perf-poor);
+  color: white;
+}
+
+/* 加载动画 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading-pulse {
+  animation: pulse 2s infinite;
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+  .message-content {
+    max-width: 85%;
+  }
+  
+  .input-wrapper {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  .input-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  
+  .ai-chat-container {
+    height: 100vh;
+  }
+  
+  .chat-header {
+    padding: var(--spacing-sm);
+  }
+  
+  .messages-container {
+    padding: var(--spacing-sm);
+  }
+}
+
+/* 无障碍访问 */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-slide-up,
+  .animate-slide-down,
+  .animate-scale-in {
+    animation: none;
+  }
+  
+  .messages-container {
+    scroll-behavior: auto;
+  }
+}
+
+/* 高对比度模式 */
+@media (prefers-contrast: high) {
+  .message-bubble {
+    border: 2px solid var(--text-primary);
+  }
+  
+  .sql-block {
+    border: 2px solid var(--text-primary);
   }
 }

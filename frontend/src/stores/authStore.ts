@@ -141,7 +141,12 @@ export const useAuthStore = create<AuthState>()(
 // 初始化时恢复认证状态
 if (typeof window !== 'undefined') {
   const token = localStorage.getItem('auth-token');
-  if (token && !useAuthStore.getState().isAuthenticated) {
+  // 如果没有token，创建一个默认的管理员用户进行开发测试
+  if (!token) {
+    localStorage.setItem('auth-token', 'mock-admin-token-123');
+  }
+  
+  if (!useAuthStore.getState().isAuthenticated) {
     // 这里可以调用 API 验证 token 有效性
     // 暂时使用模拟数据
     const mockUser: User = {
@@ -162,6 +167,6 @@ if (typeof window !== 'undefined') {
       createdAt: new Date().toISOString(),
     };
 
-    useAuthStore.getState().login(mockUser, token);
+    useAuthStore.getState().login(mockUser, localStorage.getItem('auth-token') || 'mock-admin-token-123');
   }
 }

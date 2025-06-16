@@ -22,6 +22,7 @@ const LazyWrapper = ({ children }: { children: React.ReactNode }) => (
 
 // 懒加载页面组件
 const Dashboard = lazy(() => import('@/pages/Dashboard'));
+const TestDashboard = lazy(() => import('@/TestDashboard'));
 const Analytics = lazy(() => import('@/pages/Analytics'));
 const Reports = lazy(() => import('@/pages/Reports'));
 const Settings = lazy(() => import('@/pages/Settings'));
@@ -55,6 +56,14 @@ export const router = createBrowserRouter([
         element: (
           <LazyWrapper>
             <Dashboard />
+          </LazyWrapper>
+        ),
+      },
+      {
+        path: 'test-dashboard',
+        element: (
+          <LazyWrapper>
+            <TestDashboard />
           </LazyWrapper>
         ),
       },

@@ -25,12 +25,12 @@ build/
 *.duckdb
 *.duckdb.wal
 
-# Dify - ignore entire dify directory as it's a separate git repository
-dify/
-
-# Docker
+# Docker and container related files
 *.log
 docker-compose.override.yml
+containers/legacy_docker/
+
+# Removed dify platform files (no longer used)
 
 # IDE
 .vscode/

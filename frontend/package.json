@@ -5,20 +5,34 @@
   "description": "抖音数据分析平台 - 主站前端应用",
   "scripts": {
     "dev": "vite --host 0.0.0.0 --port 5173",
+    "dev:proxy": "concurrently \"npm run dev\" \"npm run start:dbgpt\"",
     "build": "tsc && vite build",
     "build:dbgpt": "bash scripts/build-dbgpt.sh",
+    "build:with-ai": "npm run build:dbgpt && npm run build",
+    "build:analyze": "npm run build && npx vite-bundle-analyzer dist",
     "preview": "vite preview",
+    "start:dbgpt": "cd ../external/dbgpt && npm run dev",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --ext ts,tsx --fix",
     "type-check": "tsc --noEmit",
+    "type-check:watch": "tsc --noEmit --watch",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage",
+    "test:ai": "vitest run src/tests/ai",
     "e2e": "playwright test",
     "e2e:ui": "playwright test --ui",
     "e2e:install": "playwright install",
+    "e2e:ai": "playwright test tests/e2e/ai-integration.spec.ts",
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,md}\"",
-    "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,json,css,md}\""
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "health:check": "node scripts/health-check.js",
+    "perf:lighthouse": "lighthouse http://localhost:5173 --output json --output-path ./reports/lighthouse.json",
+    "perf:bundle": "npm run build && npx bundlesize",
+    "deps:update": "npx npm-check-updates -u",
+    "deps:audit": "npm audit --audit-level moderate",
+    "clean": "rm -rf dist node_modules/.vite",
+    "postinstall": "husky install || true"
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
@@ -52,21 +66,63 @@
     "@vitejs/plugin-react": "^4.1.1",
     "@vitest/coverage-v8": "^1.6.1",
     "autoprefixer": "^10.4.16",
+    "bundlesize": "^0.18.1",
+    "concurrently": "^8.2.2",
     "eslint": "^8.57.1",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.20",
+    "husky": "^8.0.3",
     "jsdom": "^26.1.0",
+    "lighthouse": "^11.4.0",
+    "npm-check-updates": "^16.14.12",
     "playwright": "^1.40.0",
     "postcss": "^8.4.32",
     "prettier": "^3.1.0",
     "prettier-plugin-tailwindcss": "^0.5.7",
+    "rollup-plugin-bundle-analyzer": "^4.0.0",
     "tailwindcss": "^3.3.6",
     "typescript": "^5.2.2",
     "vite": "^5.0.0",
-    "vitest": "^1.0.0"
+    "vite-bundle-analyzer": "^0.7.0",
+    "vitest": "^1.0.0",
+    "web-vitals": "^3.5.0"
   },
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=9.0.0"
-  }
+  },
+  "bundlesize": [
+    {
+      "path": "dist/assets/*.js",
+      "maxSize": "200 kB",
+      "compression": "gzip"
+    },
+    {
+      "path": "dist/assets/*.css",
+      "maxSize": "50 kB",
+      "compression": "gzip"
+    }
+  ],
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "keywords": [
+    "douyin",
+    "analytics",
+    "react",
+    "typescript",
+    "vite",
+    "antd",
+    "tailwindcss",
+    "dbgpt",
+    "ai"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/douyin-analytics.git"
+  },
+  "license": "MIT"
 }
